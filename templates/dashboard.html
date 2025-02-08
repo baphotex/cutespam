@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="floating-heart" style="left: 30%; top: 10%">🌼</div>
+<div class="floating-heart" style="left: 70%; top: 30%">💫</div>
+
+<div class="col-md-8 mx-auto">
+    <div class="kawaii-header text-center">
+        <h1>Hello cutie! 💖</h1>
+        <p>What magic shall we make today? 🌸</p>
+    </div>
+</div>
+<div class="col-md-12 mt-4">
+    <div class="kawaii-header text-center mb-4">
+        <h3>✨ List Magic Maker ✨</h3>
+        <p class="mb-0">Create your perfect list! 🎀</p>
+    </div>
+    
+    <form method="POST" action="{{ url_for('run_operation', operation='custom_list') }}">
+        <div class="row g-4">
+            <!-- List Configuration -->
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="form-label">🎯 Target List URI</label>
+                    <input type="text" 
+                           class="form-control kawaii-input" 
+                           name="target_list" 
+                           required
+                           placeholder="at://did:plc:.../app.bsky.graph.list/..."
+                           pattern="^at://.+">
+                </div>
+            </div>
+
+            <!-- DID Lists -->
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="form-label">🌈 DIDs to Include</label>
+                    <textarea class="form-control kawaii-textarea" 
+                              name="inclusion_dids" 
+                              rows="8"
+                              placeholder="One DID per line 💌"></textarea>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="form-label">🚫 DIDs to Exclude</label>
+                    <textarea class="form-control kawaii-textarea" 
+                              name="exclusion_dids" 
+                              rows="8"
+                              placeholder="One DID per line 🛑"></textarea>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="col-12 text-center">
+                <button type="submit" class="btn btn-kawaii btn-lg">
+                    🪄 Create List 🪄
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="row g-4">
+        <div class="col-md-6">
+            <a href="{{ url_for('run_operation', operation='update_exclusion') }}" 
+               class="btn btn-kawaii btn-lg w-100">
+               🧹 Clean Up List 
+               <br><small class="text-muted">(no icky followers allowed!)</small>
+            </a>
+        </div>
+        
+        <div class="col-md-6">
+            <a href="{{ url_for('run_operation', operation='save_truckers') }}" 
+               class="btn btn-kawaii btn-lg w-100">
+               🚚 Save Truckers 
+               <br><small class="text-muted">(our faves! 💕)</small>
+            </a>
+        </div>
+        
+        <div class="col-12 text-center">
+            <a href="{{ url_for('logout') }}" class="btn btn-kawaii">
+                Bye-bye! 👋
+            </a>
+        </div>
+    </div>
+
+    <div class="mt-4 p-3" id="status">
+        Current Status: {{ status }} 💌
+    </div>
+</div>
+{% endblock %}

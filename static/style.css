@@ -1,0 +1,188 @@
+:root {
+    --pink: #ffb3c6;
+    --lavender: #e6e6fa;
+    --mint: #b4eeb4;
+    --text: #6b4b4b;
+}
+
+body {
+    background: linear-gradient(45deg, var(--pink), var(--lavender), var(--mint));
+    min-height: 100vh;
+    font-family: 'Comic Neue', cursive;
+    color: var(--text);
+}
+
+.kawaii-header {
+    background: white;
+    border-radius: 15px;
+    border: 4px dotted var(--pink);
+    padding: 1rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.kawaii-header::after {
+    content: '🎀';
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    font-size: 2rem;
+}
+
+.btn-kawaii {
+    background: white !important;
+    border: 3px solid var(--text) !important;
+    border-radius: 20px !important;
+    color: var(--text) !important;
+    transition: all 0.3s ease;
+    position: relative;
+    margin: 10px 0;
+}
+
+.btn-kawaii:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn-kawaii::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+}
+
+#status {
+    background: rgba(255,255,255,0.9);
+    padding: 1rem;
+    border-radius: 15px;
+    border: 2px dashed var(--pink);
+    font-family: 'Cherry Bomb One', cursive;
+    color: #ff85a2;
+}
+
+.cat-ears {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 30px solid white;
+    position: relative;
+    margin: 0 auto;
+}
+
+.cat-ears::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: -15px;
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+.floating-heart {
+    position: fixed;
+    animation: float 3s ease-in-out infinite;
+    font-size: 2rem;
+    opacity: 0.3;
+}
+
+/* .kawaii-input {
+    border: 2px solid #ffb3c6 !important;
+    border-radius: 10px !important;
+    padding: 8px 12px !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+}
+
+.kawaii-input:focus {
+    border-color: #ff85a2 !important;
+    box-shadow: 0 0 8px rgba(255, 131, 162, 0.3) !important;
+}
+
+.kawaii-input::placeholder {
+    color: #ffb3c6 !important;
+    font-size: 0.9em;
+} */ 
+
+/* More spacious layout */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+/*.kawaii-textarea {
+    height: 200px;
+    padding: 12px !important;
+    font-size: 0.9em;
+}
+
+.kawaii-input {
+    font-size: 0.95em;
+    padding: 10px 15px !important;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-size: 0.95em;
+    color: #ff75a0;
+} */ 
+
+/* Better responsive behavior */
+/*@media (max-width: 768px) {
+    .kawaii-textarea {
+        height: 150px;
+    }
+    
+    .form-group {
+        margin-bottom: 1rem;
+    }
+}*/ 
+
+/* Cleaner layout */
+.kawaii-textarea {
+    height: 250px;
+    padding: 15px !important;
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+.kawaii-input {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-size: 0.95em;
+    color: #ff75a0;
+    padding-left: 0.5rem;
+}
+
+/* Better spacing */
+.row.g-4 {
+    gap: 1.5rem 0;
+}
+
+@media (max-width: 768px) {
+    .kawaii-textarea {
+        height: 200px;
+    }
+    
+    .col-md-6 {
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Remove status box */
+#status {
+    display: none;
+}
